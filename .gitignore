@@ -1,0 +1,5 @@
+# Ben file - file iki gk katut ke commit
+*.class
+.vscode/
+bin/
+target/
