@@ -9,7 +9,7 @@ public class MataKuliah {
     /***************Atribut***************/
     String IDMatKul;
     String Nama;
-    int SKS;
+    double SKS;
 
     /***************Metode***************/
     /* Konstruktor */
@@ -39,7 +39,7 @@ public class MataKuliah {
     }
 
     // Mengembalikan nilai SKS dari Mata Kuliah
-    int getSKS(){
+    double getSKS(){
         return SKS;
     }
 
@@ -57,5 +57,12 @@ public class MataKuliah {
     // Mengatur nilai SKS dari Mata Kuliah
     void setSKS(int SKS1){
         SKS = SKS1;
+    }
+
+    // Mencetak class MataKuliah
+    void printMatKul(){
+        System.out.println("ID MatKul : " + IDMatKul);
+        System.out.println("Nama MatKul : " + Nama);
+        System.out.println("Jumlah SKS : " + SKS);
     }
 }

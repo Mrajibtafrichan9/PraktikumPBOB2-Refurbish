@@ -58,4 +58,11 @@ public class Dosen {
     void setProdi(String NamaProdi){
         Prodi = NamaProdi;
     }
+
+    // Mencetak class dosen
+    void printDosen(){
+        System.out.println("Nama Dosen: " + Nama);
+        System.out.println("NIP Dosen: " + NIP);
+        System.out.println("Prodi : " + Prodi);
+    }
 }

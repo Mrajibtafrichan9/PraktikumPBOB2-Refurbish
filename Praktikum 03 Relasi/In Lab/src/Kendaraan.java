@@ -5,7 +5,7 @@
 */
 
 public class Kendaraan {
-    
+
     /***************Atribut***************/
     String noPlat;
     String Jenis;
@@ -44,5 +44,11 @@ public class Kendaraan {
     // Mengatur nilai dari Jenis Kendaraan
     void setJenis(String Jenis1){
         Jenis = Jenis1;
+    }
+
+    // Mencetak class Kendaraan
+    void printKendaraan(){
+        System.out.println("Nomor Plat : " + noPlat);
+        System.out.println("Jenis Kendaraan : " + Jenis);
     }
 }
