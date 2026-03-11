@@ -1,7 +1,7 @@
 /*  Nama Program : MainMhs.java
-    Deskripsi :  menggunakan class Titik untuk membuat objek Titik dan memanggil method yang telah dibuat dalam class Titik
+    Deskripsi :  menggunakan class Mahasiswa untuk membuat objek Mahasiswa dan memanggil method yang telah dibuat dalam class Mahasiswa
     Pembuat : Muchammad Rajib Tafrichan
-    Tanggal : Kamis, 19 Februari 2026 
+    Tanggal : Minggu, 8 Maret 2026 
 */
 
 public class MainMhs {
