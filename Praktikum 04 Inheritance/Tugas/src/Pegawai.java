@@ -4,7 +4,9 @@
     Tanggal : Sabtu, 14 Maret 2026 
 */
 
+//import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Pegawai {
@@ -14,6 +16,7 @@ public class Pegawai {
     String Nama;
     LocalDate TanggalLahir;
     LocalDate TerhitungMulai;
+    String Jabatan;
     int GajiPokok;
 
     /***************Metode***************/ 
@@ -24,15 +27,17 @@ public class Pegawai {
         this.Nama = "AAAAAA";
         this.TanggalLahir = LocalDate.now();
         this.TerhitungMulai = LocalDate.of(2015,01,01);
+        this.Jabatan = "-";
         this.GajiPokok = 0;
     }
 
     // Merancang sebuah class Pegawai dengan parameter terlampir
-    Pegawai(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, int GajiPokok){
+    Pegawai(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, int GajiPokok){
         this.NIP = NIP;
         this.Nama = Nama;
         this.TanggalLahir = TanggalLahir;
         this.TerhitungMulai = TerhitungMulai;
+        this.Jabatan = Jabatan;
         this.GajiPokok = GajiPokok;
     }
 
@@ -57,24 +62,27 @@ public class Pegawai {
         return TerhitungMulai;
     }
 
+    // Mengembalikan nilai Jabatan
+    String getJabatan(){
+        return Jabatan;
+    }
+
     // Mengembalikan nilai GajiPokok
     int getGajiPokok(){
         return GajiPokok;
     }
 
-    // Mengubah format tanggal menjadi DD-MMMM-YYYY
-    DateTimeFormatter DMY(){
-        return DMY = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-    }
 
     // Mengembalikan Terhitung Mulai dengan format DD-MMMM-YYYY
     String TMTDMY(){
-        return TMTDMY = TerhitungMulai.format(DMY);
+        DateTimeFormatter DMY1 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id", "ID"));
+        return TerhitungMulai.format(DMY1);
     }
 
     // Mengembalikan Tanggal Lahir dengan format DD-MMM-YYYY
     String TLDMY(){
-        return TLDMY = TanggalLahir.format(DMY);
+        DateTimeFormatter DMY2 = DateTimeFormatter.ofPattern("dd-MMMM-yyyy", new Locale("id", "ID"));
+        return TanggalLahir.format(DMY2);
     }
 
     /* Mutator */
@@ -96,6 +104,11 @@ public class Pegawai {
     // Mengatur nilai TerhitungMulai
     void setTerhitungMulai(LocalDate TMT){
         TerhitungMulai = TMT;
+    }
+
+    // Mengatur nilai Jabatan
+    void setJabatan(String jabatan){
+        Jabatan = jabatan;
     }
 
     // Mengatur nilai GajiPokok

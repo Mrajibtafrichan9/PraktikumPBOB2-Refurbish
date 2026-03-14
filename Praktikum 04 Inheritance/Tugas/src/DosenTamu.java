@@ -19,8 +19,8 @@ public class DosenTamu extends Dosen2 {
         this.MasaKontrak = 0;
     }
     // Merancang sebuah class DosenTamu dengan menambah parameter dari class Dosen2
-    DosenTamu(String NIDK, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Fakultas, int GajiPokok, int MasaKontrak){
-        super.Dosen2(NIP, Nama, TanggalLahir, TerhitungMulai, Fakultas, GajiPokok);
+    DosenTamu(String NIDK, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, int GajiPokok, int MasaKontrak){
+        super.Dosen2(NIP, Nama, TanggalLahir, TerhitungMulai, "Dosen Tamu", Fakultas, GajiPokok);
         this.NIDK = NIDK;
         this.MasaKontrak = MasaKontrak;
     }

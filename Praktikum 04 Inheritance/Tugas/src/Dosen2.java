@@ -21,8 +21,8 @@ public class Dosen2 extends Pegawai {
     }
 
     // Merancang sebuah class Dosen2 dengan menambah parameter dari class Pegawai
-    Dosen2(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Fakultas, int GajiPokok){
-        super(NIP, Nama, TanggalLahir, TerhitungMulai, GajiPokok);
+    Dosen2(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, int GajiPokok){
+        super(NIP, Nama, TanggalLahir, TerhitungMulai, Jabatan, GajiPokok);
         this.Fakultas = Fakultas;
     }
 
@@ -32,19 +32,16 @@ public class Dosen2 extends Pegawai {
         return Fakultas;
     }
 
-    // Mengembalikan nilai masa kerja
-    Period getMasaKerja(){
-        return MasaKerja = Period.between(TerhitungMulai, LocalDate.now() );
+    // Mengembalikan nilai masa kerja dalam Tahun
+    int getMKTahun(){
+        Period TM1 = Period.between(TerhitungMulai, LocalDate.now());
+        return TM1.getYears();
     }
 
-    // Mengembalikan nilai masa kerja dalam tahun
-    Period getMKTahun(){
-        return MasaKerja.getYear();
-    }
-
-    // Mengembalikan nilai masa kerja dalam bulan
-    Period getMKBulan(){
-        return MasaKerja.getMonth();
+    // Mengembalikan nilai masa kerja dalam Bulan
+    int getMKBulan(){
+        Period TM2 = Period.between(TerhitungMulai, LocalDate.now());
+        return TM2.getMonths();
     }
 
     /* Mutator */

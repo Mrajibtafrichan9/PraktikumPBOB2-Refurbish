@@ -6,6 +6,8 @@
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class DosenTetap extends Dosen2 {
     /***************Atribut***************/
@@ -17,12 +19,12 @@ public class DosenTetap extends Dosen2 {
     /* Konstruktor */
     // Merancang sebuah class DosenTetap tanpa parameter
     DosenTetap(){
-        super.Dosen2();
+        super();
         this.NIDN = "-";
     }
     // Merancang sebuah class Dosen2 dengan menambah parameter dari class Pegawai
-    DosenTetap(String NIDN, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Fakultas, int GajiPokok){
-        super.Dosen2(NIP, Nama, TanggalLahir, TerhitungMulai, Fakultas, GajiPokok);
+    DosenTetap(String NIDN, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, int GajiPokok){
+        super(NIP, Nama, TanggalLahir, TerhitungMulai, "Dosen Tetap", Fakultas, GajiPokok);
         this.NIDN = NIDN;
     }
 
@@ -38,10 +40,10 @@ public class DosenTetap extends Dosen2 {
     }
 
     // Mengembalikan tanggal pensiun
-    LocalDate getPensiun(){
-        LocalDate Tahun = getTanggalLahir().plusYears(BUP);
-        LocalDate Pensiun = Tahun.plusMonths(1);
-        return Pensiun;
+    String getPensiun(){
+        LocalDate Pensiun = getTanggalLahir().plusYears(BUP).plusMonths(1).withDayOfMonth(1);
+        DateTimeFormatter DMY3 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new locale("id", "ID"));
+        return Pensiun.format(DMY3);
     }
 
     /* Mutator */
@@ -56,8 +58,8 @@ public class DosenTetap extends Dosen2 {
         System.out.println("NIDN : " + getNIDN());
         System.out.println("Nama : " + getNama());
         System.out.println("Tanggal Lahir : " + getTanggalLahir());
-        System.out.printLn("TMT : " + TMTDMY());
-        System.out.println("Jabatan : Dosen Tetap");
+        System.out.println("TMT : " + TMTDMY());
+        System.out.println("Jabatan : " + getJabatan());
         System.out.println("Fakultas = " + getFakultas());
         System.out.println("Masa Kerja : " + getMKTahun() + " Tahun " + getMKBulan() + " Bulan");
         System.out.println("Tanggal Pensiun : " + getPensiun());
