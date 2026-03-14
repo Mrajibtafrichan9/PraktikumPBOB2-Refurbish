@@ -23,7 +23,7 @@ public class Pegawai {
         this.NIP = "*****";
         this.Nama = "AAAAAA";
         this.TanggalLahir = LocalDate.now();
-        this.TerhitungMulai = LocalDate.now();
+        this.TerhitungMulai = LocalDate.of(2015,01,01);
         this.GajiPokok = 0;
     }
 
@@ -62,6 +62,21 @@ public class Pegawai {
         return GajiPokok;
     }
 
+    // Mengubah format tanggal menjadi DD-MMMM-YYYY
+    DateTimeFormatter DMY(){
+        return DMY = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+    }
+
+    // Mengembalikan Terhitung Mulai dengan format DD-MMMM-YYYY
+    String TMTDMY(){
+        return TMTDMY = TerhitungMulai.format(DMY);
+    }
+
+    // Mengembalikan Tanggal Lahir dengan format DD-MMM-YYYY
+    String TLDMY(){
+        return TLDMY = TanggalLahir.format(DMY);
+    }
+
     /* Mutator */
     // Mengatur nilai NIP
     void setNIP(String NIPegawai){
@@ -87,4 +102,6 @@ public class Pegawai {
     void setGajiPokok(int Gaji){
         GajiPokok = Gaji;
     }
+
+    // Mencetak 
 }
