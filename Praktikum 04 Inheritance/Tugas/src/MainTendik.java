@@ -18,8 +18,9 @@ public class MainTendik {
         T2.setNama("Andi");
         T2.setTanggalLahir(LocalDate.parse("1980-05-20"));
         T2.setTerhitungMulai(LocalDate.parse("2015-01-01"));
+        T2.setJabatan("Tendik");
         T2.setBidang("Teknik");
-        T2.setGajiPokok(5000000);
+        T2.setGajiPokok(5000000.0);
         T2.printInfo();
     }
 }

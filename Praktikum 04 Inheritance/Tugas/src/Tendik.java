@@ -12,7 +12,7 @@ import java.util.Locale;
 public class Tendik extends Pegawai {
     /***************Atribut***************/
 
-    String Fakultas;
+    String Bidang;
     int BUP = 55;
 
     /***************Metode***************/ 
@@ -24,8 +24,8 @@ public class Tendik extends Pegawai {
     }
 
     // Merancang sebuah class Tendik dengan menambah parameter dari class Pegawai
-    Tendik(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Bidang, int GajiPokok){
-        super(NIP, Nama, TanggalLahir, TerhitungMulai, GajiPokok);
+    Tendik(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Bidang, double GajiPokok){
+        super(NIP, Nama, TanggalLahir, TerhitungMulai, "Tendik", GajiPokok);
         this.Bidang = Bidang;
     }
 
@@ -36,14 +36,14 @@ public class Tendik extends Pegawai {
     }
 
     // Mengembalikan nilai total tunjangan
-    int getTunjangan(){
-        return 1 / 100 * getMKTahun() * getGajiPokok();
+    double getTunjangan(){
+        return 0.01 * getMKTahun() * getGajiPokok();
     }
 
     // Mengembalikan tanggal pensiun
     String getPensiun(){
         LocalDate Pensiun = getTanggalLahir().plusYears(BUP).plusMonths(1).withDayOfMonth(1);
-        DateTimeFormatter DMY3 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new locale("id", "ID"));
+        DateTimeFormatter DMY3 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id", "ID"));
         return Pensiun.format(DMY3);
     }
 
@@ -57,11 +57,10 @@ public class Tendik extends Pegawai {
     // Mencetak class Tendik
     void printInfo(){
         System.out.println("NIP : " + getNIP());
-        System.out.println("NIDN : " + getNIDN());
         System.out.println("Nama : " + getNama());
-        System.out.println("Tanggal Lahir : " + getTanggalLahir());
-        System.out.printLn("TMT : " + TMTDMY());
-        System.out.println("Jabatan : Tendik");
+        System.out.println("Tanggal Lahir : " + TLDMY());
+        System.out.println("TMT : " + TMTDMY());
+        System.out.println("Jabatan : " + getJabatan());
         System.out.println("Bidang = " + getBidang());
         System.out.println("Masa Kerja : " + getMKTahun() + " Tahun " + getMKBulan() + " Bulan");
         System.out.println("Tanggal Pensiun : " + getPensiun());

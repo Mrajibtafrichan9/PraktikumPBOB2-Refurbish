@@ -18,7 +18,7 @@ public class Pegawai {
     LocalDate TanggalLahir;
     LocalDate TerhitungMulai;
     String Jabatan;
-    int GajiPokok;
+    double GajiPokok;
 
     /***************Metode***************/ 
     /* Konstruktor */
@@ -33,7 +33,7 @@ public class Pegawai {
     }
 
     // Merancang sebuah class Pegawai dengan parameter terlampir
-    Pegawai(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, int GajiPokok){
+    Pegawai(String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, double GajiPokok){
         this.NIP = NIP;
         this.Nama = Nama;
         this.TanggalLahir = TanggalLahir;
@@ -69,7 +69,7 @@ public class Pegawai {
     }
 
     // Mengembalikan nilai GajiPokok
-    int getGajiPokok(){
+    double getGajiPokok(){
         return GajiPokok;
     }
 
@@ -82,8 +82,20 @@ public class Pegawai {
 
     // Mengembalikan Tanggal Lahir dengan format DD-MMM-YYYY
     String TLDMY(){
-        DateTimeFormatter DMY2 = DateTimeFormatter.ofPattern("dd-MMMM-yyyy", new Locale("id", "ID"));
+        DateTimeFormatter DMY2 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id", "ID"));
         return TanggalLahir.format(DMY2);
+    }
+
+    // Mengembalikan nilai masa kerja dalam Tahun
+    int getMKTahun(){
+        Period TM1 = Period.between(TerhitungMulai, LocalDate.now()).minusYears(1);
+        return TM1.getYears();
+    }
+
+    // Mengembalikan nilai masa kerja dalam Bulan
+    int getMKBulan(){
+        Period TM2 = Period.between(TerhitungMulai, LocalDate.now());
+        return TM2.getMonths();
     }
 
     /* Mutator */
@@ -113,7 +125,7 @@ public class Pegawai {
     }
 
     // Mengatur nilai GajiPokok
-    void setGajiPokok(int Gaji){
+    void setGajiPokok(double Gaji){
         GajiPokok = Gaji;
     }
 

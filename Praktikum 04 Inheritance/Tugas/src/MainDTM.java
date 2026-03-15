@@ -19,8 +19,9 @@ public class MainDTM {
         DT2.setNama("Andi");
         DT2.setTanggalLahir(LocalDate.parse("1980-05-20"));
         DT2.setTerhitungMulai(LocalDate.parse("2015-01-01"));
+        DT2.setJabatan("Dosen Tamu");
         DT2.setFakultas("Teknik");
-        DT2.setGajiPokok(5000000);
+        DT2.setGajiPokok(5000000.0);
         DT2.setMasaKontrak(24);
         DT2.printInfo();
     }

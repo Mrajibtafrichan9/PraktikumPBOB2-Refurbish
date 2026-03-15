@@ -23,8 +23,8 @@ public class DosenTetap extends Dosen2 {
         this.NIDN = "-";
     }
     // Merancang sebuah class Dosen2 dengan menambah parameter dari class Pegawai
-    DosenTetap(String NIDN, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, int GajiPokok){
-        super(NIP, Nama, TanggalLahir, TerhitungMulai, "Dosen Tetap", Fakultas, GajiPokok);
+    DosenTetap(String NIDN, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, double GajiPokok){
+        super(NIP, Nama, TanggalLahir, TerhitungMulai, Jabatan, Fakultas, GajiPokok);
         this.NIDN = NIDN;
     }
 
@@ -35,9 +35,8 @@ public class DosenTetap extends Dosen2 {
     }
 
     // Mengembalikan nilai total tunjangan
-    int getTunjangan(){
-        int Tunjangan = 2 / 100 * getMKTahun() * getGajiPokok();
-        return Tunjangan;
+    double getTunjangan(){
+        return 0.02* getMKTahun() * getGajiPokok();
     }
 
     // Mengembalikan tanggal pensiun
@@ -59,12 +58,13 @@ public class DosenTetap extends Dosen2 {
         System.out.println("NIP : " + getNIP());
         System.out.println("NIDN : " + getNIDN());
         System.out.println("Nama : " + getNama());
-        System.out.println("Tanggal Lahir : " + getTanggalLahir());
+        System.out.println("Tanggal Lahir : " + TLDMY());
         System.out.println("TMT : " + TMTDMY());
         System.out.println("Jabatan : " + getJabatan());
-        System.out.println("Fakultas = " + getFakultas());
+        System.out.println("Fakultas : " + getFakultas());
         System.out.println("Masa Kerja : " + getMKTahun() + " Tahun " + getMKBulan() + " Bulan");
         System.out.println("Tanggal Pensiun : " + getPensiun());
-        System.out.println("Tunjangan =  2% x " + getMKTahun() + " x " + getGajiPokok() + " = " + getTunjangan());
+        System.out.println("Gaji Pokok : " + getGajiPokok());
+        System.out.println("Tunjangan :  2% x " + getMKTahun() + " x " + getGajiPokok() + " = " + getTunjangan());
     }
 }

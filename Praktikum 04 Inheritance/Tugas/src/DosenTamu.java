@@ -24,8 +24,8 @@ public class DosenTamu extends Dosen2 {
         this.MasaKontrak = 0;
     }
     // Merancang sebuah class DosenTamu dengan menambah parameter dari class Dosen2
-    DosenTamu(String NIDK, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, int GajiPokok, int MasaKontrak){
-        super(NIP, Nama, TanggalLahir, TerhitungMulai, "Dosen Tamu", Fakultas, GajiPokok);
+    DosenTamu(String NIDK, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, double GajiPokok, int MasaKontrak){
+        super(NIP, Nama, TanggalLahir, TerhitungMulai, Jabatan, Fakultas, GajiPokok);
         this.NIDK = NIDK;
         this.MasaKontrak = MasaKontrak;
     }
@@ -42,8 +42,8 @@ public class DosenTamu extends Dosen2 {
     }
 
     // Mengembalikan nilai total tunjangan
-    int getTunjangan(){
-        return 25 / 1000 * getGajiPokok();
+    double getTunjangan(){
+        return 0.025 * getGajiPokok();
     }
 
     /* Mutator */
@@ -57,17 +57,17 @@ public class DosenTamu extends Dosen2 {
         MasaKontrak = Bulan;
     }
 
-    // Mencetak class Dosen Tetap
+    // Mencetak class Dosen Tamu
     void printInfo(){
         System.out.println("NIP : " + getNIP());
         System.out.println("NIDK : " + getNIDK());
         System.out.println("Nama : " + getNama());
-        System.out.println("Tanggal Lahir : " + getTanggalLahir());
+        System.out.println("Tanggal Lahir : " + TLDMY());
         System.out.println("TMT : " + TMTDMY());
         System.out.println("Jabatan : " + getJabatan());
-        System.out.println("Fakultas = " + getFakultas());
+        System.out.println("Fakultas : " + getFakultas());
         System.out.println("Masa Kontrak : " + MasaKontrak / 2 + " Tahun " + MasaKontrak % 2 + " Bulan");
-    //    System.out.println("Tanggal Pensiun : " + getPensiun());
-        System.out.println("Tunjangan =  2,5% x " + getGajiPokok() + " = " + getTunjangan());
+        System.out.println("Gaji Pokok : " + getGajiPokok());
+        System.out.println("Tunjangan :  2,5% x " + getGajiPokok() + " = " + getTunjangan());
     }
 }
