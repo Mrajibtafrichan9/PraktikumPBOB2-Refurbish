@@ -46,7 +46,7 @@ public class Dosen2 extends Pegawai {
 
     /* Mutator */
     // Mengatur nilai Fakultas
-    void getFakultas(String fak){
+    void setFakultas(String fak){
         Fakultas = fak;
     }
 

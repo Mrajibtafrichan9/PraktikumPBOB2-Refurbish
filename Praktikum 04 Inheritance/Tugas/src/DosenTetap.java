@@ -36,13 +36,14 @@ public class DosenTetap extends Dosen2 {
 
     // Mengembalikan nilai total tunjangan
     int getTunjangan(){
-        return 2 / 100 * getMKTahun() * getGajiPokok();
+        int Tunjangan = 2 / 100 * getMKTahun() * getGajiPokok();
+        return Tunjangan;
     }
 
     // Mengembalikan tanggal pensiun
     String getPensiun(){
         LocalDate Pensiun = getTanggalLahir().plusYears(BUP).plusMonths(1).withDayOfMonth(1);
-        DateTimeFormatter DMY3 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new locale("id", "ID"));
+        DateTimeFormatter DMY3 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id", "ID"));
         return Pensiun.format(DMY3);
     }
 
@@ -51,6 +52,7 @@ public class DosenTetap extends Dosen2 {
     void setNIDN(String NIDNas){
         NIDN = NIDNas;
     }
+    
 
     // Mencetak class Dosen Tetap
     void printInfo(){

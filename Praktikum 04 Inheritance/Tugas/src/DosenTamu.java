@@ -4,6 +4,11 @@
     Tanggal : Sabtu, 14 Maret 2026 
 */
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 public class DosenTamu extends Dosen2 {
     /***************Atribut***************/
 
@@ -14,13 +19,13 @@ public class DosenTamu extends Dosen2 {
     /* Konstruktor */
     // Merancang sebuah class DosenTamu tanpa parameter
     DosenTamu(){
-        super.Dosen2();
+        super();
         this.NIDK = "-";
         this.MasaKontrak = 0;
     }
     // Merancang sebuah class DosenTamu dengan menambah parameter dari class Dosen2
     DosenTamu(String NIDK, String NIP, String Nama, LocalDate TanggalLahir, LocalDate TerhitungMulai, String Jabatan, String Fakultas, int GajiPokok, int MasaKontrak){
-        super.Dosen2(NIP, Nama, TanggalLahir, TerhitungMulai, "Dosen Tamu", Fakultas, GajiPokok);
+        super(NIP, Nama, TanggalLahir, TerhitungMulai, "Dosen Tamu", Fakultas, GajiPokok);
         this.NIDK = NIDK;
         this.MasaKontrak = MasaKontrak;
     }
@@ -58,8 +63,8 @@ public class DosenTamu extends Dosen2 {
         System.out.println("NIDK : " + getNIDK());
         System.out.println("Nama : " + getNama());
         System.out.println("Tanggal Lahir : " + getTanggalLahir());
-        System.out.printLn("TMT : " + TMTDMY());
-        System.out.println("Jabatan : Dosen Tamu");
+        System.out.println("TMT : " + TMTDMY());
+        System.out.println("Jabatan : " + getJabatan());
         System.out.println("Fakultas = " + getFakultas());
         System.out.println("Masa Kontrak : " + MasaKontrak / 2 + " Tahun " + MasaKontrak % 2 + " Bulan");
     //    System.out.println("Tanggal Pensiun : " + getPensiun());

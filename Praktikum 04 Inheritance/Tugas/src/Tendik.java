@@ -4,6 +4,11 @@
     Tanggal : Sabtu, 14 Maret 2026 
 */
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 public class Tendik extends Pegawai {
     /***************Atribut***************/
 
@@ -36,10 +41,10 @@ public class Tendik extends Pegawai {
     }
 
     // Mengembalikan tanggal pensiun
-    LocalDate getPensiun(){
-        LocalDate Tahun = getTanggalLahir().plusYears(BUP);
-        LocalDate Pensiun = Tahun.plusMonths(1);
-        return Pensiun;
+    String getPensiun(){
+        LocalDate Pensiun = getTanggalLahir().plusYears(BUP).plusMonths(1).withDayOfMonth(1);
+        DateTimeFormatter DMY3 = DateTimeFormatter.ofPattern("dd MMMM yyyy", new locale("id", "ID"));
+        return Pensiun.format(DMY3);
     }
 
 
