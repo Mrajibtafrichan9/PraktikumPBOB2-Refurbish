@@ -3,3 +3,6 @@
 .vscode/
 bin/
 target/
+/Praktikum10Presistensi/In Lab/jdbc_mhs_service/nbproject/private/
+/Praktikum11Modularisasi/inLab/ModulA/nbproject/private/
+/Praktikum11Modularisasi/inLab/ModulA/build/
